@@ -1,15 +1,15 @@
-#include "./minilibx_opengl_20191021/mlx.h"
+#include "fract.h"
 
 int		create_trgb(int t, int r, int g, int b)
 {
 	return(t << 24 | r << 16 | g << 8 | b);
 }
 
-int main(void)
+int	main(void)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	char	*title = "test";
+	void	*mlx;
+	void	*mlx_win;
+	t_data	img;
 	int		x;
 	int		y;
 
@@ -17,11 +17,11 @@ int main(void)
 	int g = 255;
 	int b = 255;
 
-	g = 0;
-	x = 0;
-	y = 0;
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window (mlx_ptr, 255, 255, title);
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 255, 255, "Hello world!");
+	img.img = mlx_new_image(mlx, 255, 255);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
+								 &img.endian);
 	while (y <= 255)
 	{
 		x = 0;
@@ -30,12 +30,12 @@ int main(void)
 		r = 255;
 		while (x <= 255)
 		{
-			mlx_pixel_put(mlx_ptr, win_ptr, x, y, create_trgb(0, r, g, b));
+			ft_mlx_pixel_put(&img, x, y, create_trgb(0, r, g, b));
 			x++;
 			r--;
 		}
 		y++;
 	}
-	mlx_loop(mlx_ptr);
-	return (0);
+	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+	mlx_loop(mlx);
 }
