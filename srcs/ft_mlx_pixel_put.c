@@ -1,4 +1,4 @@
-#include "fract.h"
+#include "../include/fract.h"
 
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color)
 {

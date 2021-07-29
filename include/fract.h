@@ -1,7 +1,9 @@
 #ifndef FRACT_H
 # define FRACT_H
 
-#include "./minilibx_opengl_20191021/mlx.h"
+#include "../lib/minilibx_opengl_20191021/mlx.h"
+#include <unistd.h>
+#include <stdlib.h>
 
 typedef struct s_data {
 	void	*img;

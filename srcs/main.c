@@ -1,4 +1,4 @@
-#include "fract.h"
+#include "../include/fract.h"
 
 int		create_trgb(int t, int r, int g, int b)
 {
@@ -38,4 +38,5 @@ int	main(void)
 	}
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
+	system("leaks fract");
 }
