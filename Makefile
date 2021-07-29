@@ -2,17 +2,17 @@ NAME = fract
 
 CC = gcc 
 #CFLAGSS = -Wall -Werror -Wextra
-MLX = -lc ./lib/minilibx_opengl_20191021/libmlx.a -framework OpenGL -framework AppKit
+MLX = ./lib/minilibx_opengl_20191021/libmlx.a -framework OpenGL -framework AppKit
+LFT = ./lib/libft/libft.a
 
 SRCS =	$(addprefix ./srcs/, \
-					main.c \
-					ft_mlx_pixel_put.c \
+					*.c \
 					)
 
 all : $(NAME)
 
 $(NAME) : libft mlx
-	$(CC) $(CFLAGSS) $(MLX) $(SRCS) -o $(NAME)
+	$(CC) $(CFLAGSS) -lc $(MLX) $(LFT) $(SRCS) -o $(NAME)
 
 mlx : 
 	make -C ./lib/minilibx_opengl_20191021/
