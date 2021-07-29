@@ -1,42 +1,40 @@
 #include "../include/fract.h"
 
-int		create_trgb(int t, int r, int g, int b)
+void	make_gradient(t_win *win)
 {
-	return(t << 24 | r << 16 | g << 8 | b);
+	int	x;
+	int	y;
+	int r;
+	int g;
+	int b;
+
+	x = 0;
+	y = 0;
+	while (y <= Y)
+	{
+		x = 0;
+		g = map(x, setbound(0, X, 0, 255));
+		b = map(y, setbound(0, Y, 0, 255));
+		r = 255;
+		while (x <= X)
+		{
+			r = map(x, setbound(0, X, 0, 255));
+			ft_mlx_pixel_put(&win->img, x, y, create_trgb(0, r, g, b));
+			x++;
+		}
+		y++;
+	}
 }
 
 int	main(void)
 {
 	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
-	int		x;
-	int		y;
-
-	int r = 0;
-	int g = 255;
-	int b = 255;
+	t_win	win;
 
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 255, 255, "Hello world!");
-	img.img = mlx_new_image(mlx, 255, 255);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								 &img.endian);
-	while (y <= 255)
-	{
-		x = 0;
-		g++;
-		b--;
-		r = 255;
-		while (x <= 255)
-		{
-			ft_mlx_pixel_put(&img, x, y, create_trgb(0, r, g, b));
-			x++;
-			r--;
-		}
-		y++;
-	}
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+	win.addr = mlx_new_window(mlx, X, Y, "fract'ol");
+	set_mlx_img(X, Y, mlx, &win.img);
+	make_gradient(&win);
+	mlx_put_image_to_window(mlx, win.addr, win.img.img, 0, 0);
 	mlx_loop(mlx);
-	system("leaks fract");
 }
