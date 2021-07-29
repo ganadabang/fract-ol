@@ -35,7 +35,7 @@ typedef struct s_color
 
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		create_trgb(int t, int r, int g, int b);
-void	set_mlx_img(void *mlx, t_data *img);
+void	set_mlx_img(int x, int y, void *mlx, t_data *img);
 
 int		*setbound(int start1, int stop1, int start2, int stop2);
 int		map(int	value, int *bound);
