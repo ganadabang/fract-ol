@@ -1,10 +1,10 @@
 #include "../include/fract.h"
 
-int	*setbound(int start1, int stop1, int start2, int stop2)
+double	*setbound(double start1, double stop1, double start2, double stop2)
 {
-	int	*bound;
+	double	*bound;
 
-	bound = (int *)malloc(sizeof(int) * 4);
+	bound = (double *)malloc(sizeof(double) * 4);
 	bound[0] = start1;
 	bound[1] = stop1;
 	bound[2] = start2;
@@ -15,15 +15,10 @@ int	*setbound(int start1, int stop1, int start2, int stop2)
 /*
 ** It provides the same function as map() of p5.js
 */
-int	map(int	value, int *bound)
+double	map(double value, double *bound)
 {
-	const unsigned int size1 = abs(bound[1] - bound[0]);
-	const unsigned int size2 = abs(bound[3] - bound[2]);
-
-	if (bound[3] > bound[2])
-		value = bound[2] + (abs(value - bound[0]) * size2) / size1;
-	else
-		value = bound[2] - (abs(value - bound[0]) * size2) / size1;
+	value = bound[2] + (value - bound[0]) *fabs(bound[3] - bound[2]) /\
+			fabs(bound[1] - bound[0]);
 	free(bound);
 	return (value);
 }
