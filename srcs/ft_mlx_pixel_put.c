@@ -1,9 +1,9 @@
 #include "../include/fract.h"
 
-void	ft_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	ft_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
