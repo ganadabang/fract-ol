@@ -21,6 +21,9 @@
 # define DOWN 125
 # define UP 126
 
+# define ITER 1000
+# define MANDEL	1
+# define JULIA	2
 typedef struct s_img {
 	void	*img;
 	char	*addr;
@@ -29,22 +32,22 @@ typedef struct s_img {
 	int		endian;
 }				t_img;
 
+typedef struct s_c {
+	double	rmin;
+	double	rmax;
+	double	imin;
+	double	imax;
+	double	zoom;
+}				t_c;
+
 typedef struct s_data
 {
 	void	*mlx;
 	void	*win;
 	t_img	img;
-	char	*set;
-	double	x;
-	double	y;
-	int		i;
-	int		j;
-	double	zoom;
-	double	x_min;
-	double	x_max;
-	double	y_min;
-	double	y_max;
-
+	int		settype;
+	double	a;
+	double	b;
 }				t_data;
 
 typedef struct s_color
@@ -53,6 +56,10 @@ typedef struct s_color
 	int g;
 	int b;
 }				t_color;
+
+# define WIN_WIDTH 900
+# define WIN_HEIGHT 600
+
 
 void	ft_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	ft_mlx_set_img(int x, int y, void *mlx, t_img *img);
