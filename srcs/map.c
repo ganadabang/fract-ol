@@ -17,7 +17,7 @@ double	*setbound(double start1, double stop1, double start2, double stop2)
 */
 double	map(double value, double *bound)
 {
-	value = bound[2] + (value - bound[0]) *fabs(bound[3] - bound[2]) /\
+	value = bound[2] + (value - bound[0]) * fabs(bound[3] - bound[2]) / \
 			fabs(bound[1] - bound[0]);
 	free(bound);
 	return (value);
