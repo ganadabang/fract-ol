@@ -13,14 +13,14 @@ int	calculate_ship(double a, double b, double ca, double cb)
 		bb = fabs(2 * a * b);
 		a = aa + ca;
 		b = bb + cb;
-		if (fabs(a + b) > 100)
+		if (fabs(a + b) > 10)
 		{
 			if (n < 100)
 				return (create_trgb(0, \
-					map(n, setbound(0, sqrt(ITER), 255, 0)), 109, 211));
+					map(n, setbound(0, sqrt(ITER), 255, 0)), 0, 0));
 			else
 				return (create_trgb(0, \
-					map(n, setbound(0, sqrt(ITER), 255, 0)), 0, 0));
+					map(n, setbound(0, sqrt(ITER), 255, 0)), 255, 0));
 			break ;
 		}
 	}
