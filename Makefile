@@ -12,7 +12,7 @@ SRCS =	$(addprefix ./srcs/, \
 all : $(NAME)
 
 $(NAME) : libft mlx
-	$(CC) $(CFLAGSS) -lc $(MLX) $(LFT) $(SRCS) -o $(NAME)
+	$(CC) $(CFLAGSS) -lc $(MLX) $(LFT) $(SRCS) -o $(NAME) -O3 -g3
 
 mlx : 
 	make -C ./lib/minilibx_opengl_20191021/

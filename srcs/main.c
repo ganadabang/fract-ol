@@ -1,40 +1,10 @@
 #include "../include/fract.h"
 
-void	make_gradient(t_win *win)
+int	main(int ac, char *av[])
 {
-	int	x;
-	int	y;
-	int r;
-	int g;
-	int b;
+	t_data	data;
 
-	x = 0;
-	y = 0;
-	while (y <= Y)
-	{
-		x = 0;
-		g = map(x, setbound(0, X, 0, 255));
-		b = map(y, setbound(0, Y, 0, 255));
-		r = 255;
-		while (x <= X)
-		{
-			r = map(x, setbound(0, X, 0, 255));
-			ft_mlx_pixel_put(&win->img, x, y, create_trgb(0, r, g, b));
-			x++;
-		}
-		y++;
-	}
-}
-
-int	main(void)
-{
-	void	*mlx;
-	t_win	win;
-
-	mlx = mlx_init();
-	win.addr = mlx_new_window(mlx, X, Y, "fract'ol");
-	set_mlx_img(X, Y, mlx, &win.img);
-	make_gradient(&win);
-	mlx_put_image_to_window(mlx, win.addr, win.img.img, 0, 0);
-	mlx_loop(mlx);
+	init_data(&data, ac, av);
+	create_fractal(&data, 1, 0, 0);
+	listen_event(&data);
 }
