@@ -21,9 +21,11 @@
 # define DOWN 125
 # define UP 126
 
-# define ITER 1000
+# define ITER 100
 # define MANDEL	1
 # define JULIA	2
+# define SHIP	3
+
 typedef struct s_img {
 	void	*img;
 	char	*addr;
@@ -48,6 +50,8 @@ typedef struct s_data
 	int		settype;
 	double	a;
 	double	b;
+	double	shift_x;
+	double	shift_y;
 }				t_data;
 
 typedef struct s_color
