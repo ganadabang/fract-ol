@@ -19,9 +19,9 @@ SRCS =	$(addprefix ./src/, \
 					utils.c \
 					)
 
-all : $(NAME)
+all : libft mlx $(NAME) 
 
-$(NAME) : libft mlx
+$(NAME) : 
 	$(CC) $(CFLAGSS) -lc $(MLX) $(LFT) $(SRCS) -o $(NAME) -O3
 
 mlx : 
@@ -36,7 +36,7 @@ clean :
 fclean : clean
 	make fclean -C ./lib/libft/
 	make clean -C ./lib/minilibx_opengl_20191021/
-	rm $(NAME)
+	rm -f $(NAME)
 
 re : fclean all
 
