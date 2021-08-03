@@ -2,9 +2,9 @@
 
 static int	calculate_mandel(double a, double b, double ca, double cb)
 {
-	double			aa;
-	double			bb;
-	int				n;
+	double	aa;
+	double	bb;
+	int		n;
 
 	n = -1;
 	while (++n < ITER)
@@ -13,14 +13,14 @@ static int	calculate_mandel(double a, double b, double ca, double cb)
 		bb = 2 * a * b;
 		a = aa + ca;
 		b = bb + cb;
-		if (fabs(a + b) > 8)
+		if (fabs(a + b) > 16)
 		{
 			if (n < 100)
 				return (create_trgb(0, \
 						map(n, setbound(0, sqrt(ITER), 255, 0)), 109, 211));
 			else
 				return (create_trgb(0, \
-						map(n, setbound(0, sqrt(ITER), 255, 0)), 211, 0));
+						map(n, setbound(0, sqrt(ITER), 211, 0)), 211, 0));
 			break ;
 		}
 	}
@@ -29,10 +29,10 @@ static int	calculate_mandel(double a, double b, double ca, double cb)
 
 void	mandelbrot(t_data *data, double zoom, int mouse_x, int mouse_y)
 {
-	int			i;
-	int			j;
-	double		a;
-	double		b;
+	int		i;
+	int		j;
+	double	a;
+	double	b;
 
 	i = -1;
 	apply_zoom(&data->c, zoom, mouse_x, mouse_y);

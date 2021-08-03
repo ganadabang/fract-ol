@@ -2,8 +2,6 @@
 
 static int	mouse_event(int button, int x, int y, t_data *data)
 {
-	static double	zoom = 1;
-
 	if ((button == WHEELUP || button == WHEELDOWN))
 	{
 		if (button == WHEELUP)

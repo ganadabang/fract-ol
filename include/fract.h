@@ -67,7 +67,6 @@ void	ft_mlx_set_img(int x, int y, void *mlx, t_img *img);
 int		create_trgb(int t, int r, int g, int b);
 double	*setbound(double start1, double stop1, double start2, double stop2);
 double	map(double value, double *bound);
-
 //data.c
 void	init_data(t_data *data, int ac, char *av[]);
 //event.c
@@ -79,6 +78,5 @@ void	init_c(t_c *c);
 void	create_fractal(t_data *data, double zoom, int mouse_x, int mouse_y);
 void	mandelbrot(t_data *data, double zoom, int mouse_x, int mouse_y);
 void	julia(t_data *data, double zoom, int mouse_x, int mouse_y);
-int		calculate_ship(double a, double b, double ca, double cb);
 void	ship(t_data *data, double zoom, int mouse_x, int mouse_y);
 #endif
