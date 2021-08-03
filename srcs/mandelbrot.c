@@ -2,9 +2,9 @@
 
 static int	calculate_mandel(double a, double b, double ca, double cb)
 {
-	double			aa;
-	double			bb;
-	int				n;
+	double	aa;
+	double	bb;
+	int		n;
 
 	n = -1;
 	while (++n < ITER)
@@ -29,10 +29,10 @@ static int	calculate_mandel(double a, double b, double ca, double cb)
 
 void	mandelbrot(t_data *data, double zoom, int mouse_x, int mouse_y)
 {
-	int			i;
-	int			j;
-	double		a;
-	double		b;
+	int		i;
+	int		j;
+	double	a;
+	double	b;
 
 	i = -1;
 	apply_zoom(&data->c, zoom, mouse_x, mouse_y);
