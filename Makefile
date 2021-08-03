@@ -5,7 +5,7 @@ CFLAGSS = -Wall -Werror -Wextra
 MLX = ./lib/minilibx_opengl_20191021/libmlx.a -framework OpenGL -framework AppKit
 LFT = ./lib/libft/libft.a
 
-SRCS =	$(addprefix ./srcs/, \
+SRCS =	$(addprefix ./src/, \
 					main.c \
 					data.c \
 					map.c \
@@ -22,7 +22,7 @@ SRCS =	$(addprefix ./srcs/, \
 all : $(NAME)
 
 $(NAME) : libft mlx
-	$(CC) $(CFLAGSS) -lc $(MLX) $(LFT) $(SRCS) -o $(NAME) -O3 -g3
+	$(CC) $(CFLAGSS) -lc $(MLX) $(LFT) $(SRCS) -o $(NAME) -O3
 
 mlx : 
 	make -C ./lib/minilibx_opengl_20191021/
