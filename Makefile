@@ -1,12 +1,22 @@
-NAME = fract
+NAME = fractol
 
 CC = gcc 
-#CFLAGSS = -Wall -Werror -Wextra
+CFLAGSS = -Wall -Werror -Wextra
 MLX = ./lib/minilibx_opengl_20191021/libmlx.a -framework OpenGL -framework AppKit
 LFT = ./lib/libft/libft.a
 
 SRCS =	$(addprefix ./srcs/, \
-					*.c \
+					main.c \
+					data.c \
+					map.c \
+					ft_mlx_pixel_put.c \
+					ft_mlx_set_img.c \
+					ship.c \
+					mandelbrot.c \
+					julia.c \
+					create_trgb.c \
+					event.c \
+					utils.c \
 					)
 
 all : $(NAME)
