@@ -15,8 +15,8 @@ int	calculate_julia(double a, double b, double ca, double cb)
 		b = bb + cb;
 		if (fabs(a + b) > 16)
 		{
-				return (create_trgb(0, \
-						map(n, setbound(0, sqrt(ITER), 255, 0)), 118, 219));
+			return (create_trgb(0, \
+					map(n, setbound(0, sqrt(ITER), 255, 0)), 118, 219));
 			break ;
 		}
 	}

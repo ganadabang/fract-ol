@@ -7,7 +7,7 @@
 # include <stdlib.h>
 # include <math.h>
 
-# define ITER 1000
+# define ITER 5000
 //size
 # define WIN_WIDTH 800
 # define WIN_HEIGHT 600
@@ -57,10 +57,9 @@ typedef struct s_data
 typedef struct s_color
 {
 	int	r;
-	int g;
-	int b;
+	int	g;
+	int	b;
 }				t_color;
-
 
 void	ft_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	ft_mlx_set_img(int x, int y, void *mlx, t_img *img);
