@@ -8,8 +8,8 @@ static int	validate_parameter(int ac, char *av[])
 		return (SHIP);
 	if (ac == 4 && ft_strncmp(av[1], "julia", 5) == 0)
 		return (JULIA);
-	ft_putstr_fd("usage: ./fractol [mandelbrot] \
-	[julia 'real number' 'imaginary number']\n", 2);
+	ft_putstr_fd("usage: ./fractol [mandelbrot]", 2);
+	ft_putstr_fd(" julia 'real number' 'imaginary number'] [ship]\n", 2);
 	exit (0);
 }
 
